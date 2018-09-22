@@ -1,7 +1,7 @@
 console.log("Decode!");
 
 const helper = (data, k, storage) => {
-
+	if (k === 0) return 1;
 }
 
 const numberOfWays = (data) => {
