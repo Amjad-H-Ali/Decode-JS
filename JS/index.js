@@ -13,9 +13,10 @@ const helper = (data, k, storage) => {
 	// Result equals first number decoded + helper(remaining numbers)
 	// And first two numbers decoded + helper(remaining numbers) if number <= 27
 	let result = helper(data, k - 1, storage);
-
 	if (k >= 2 && parseInt(data.splice(0, s + 2)) <= 26 ) result += helper(data, k - 2, storage);
-
+	// Before returning result, store result in storage object
+	storage[k] = result;
+	return result;
 }
 
 const numberOfWays = (data) => {
