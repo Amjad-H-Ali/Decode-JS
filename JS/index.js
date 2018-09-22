@@ -7,13 +7,16 @@ const helper = (data, k, storage) => {
 
 	// If first number equals 0, cannot decode
 	let s = data.length - k;
-	if (k[s] === '0') return 0;
+	if (data[s] === '0') return 0;
+
 	// If result is already in storage, return it
 	if (storage[k]) return storage[k];
+
 	// Result equals first number decoded + helper(remaining numbers)
 	// And first two numbers decoded + helper(remaining numbers) if number <= 27
 	let result = helper(data, k - 1, storage);
-	if (k >= 2 && parseInt(data.splice(0, s + 2)) <= 26 ) result += helper(data, k - 2, storage);
+	if (k >= 2 && parseInt(data.slice(0, 2)) <= 26 ) result += helper(data, k - 2, storage);
+
 	// Before returning result, store result in storage object
 	storage[k] = result;
 	return result;
@@ -22,5 +25,13 @@ const helper = (data, k, storage) => {
 const numberOfWays = (data) => {
 	// To store result
 	let storage = {};
-	helper(data, data.length, storage);
+	return helper(data, data.length, storage);
 }
+
+
+console.log(numberOfWays("123"));
+console.log(numberOfWays("122713"));
+console.log(numberOfWays("011"));
+console.log(numberOfWays("9321"));
+
+
