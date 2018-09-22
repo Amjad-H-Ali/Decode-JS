@@ -8,7 +8,8 @@ const helper = (data, k, storage) => {
 	// If first number equals 0, cannot decode
 	let s = data.length - k;
 	if (k[s] === '0') return 0;
-
+	// If result is already in storage, return it
+	if (storage[k]) return storage[k];
 	// Result equals first number decoded + helper(remaining numbers)
 	// And first two numbers decoded + helper(remaining numbers) if number <= 27
 	let result = helper(data, k - 1, storage);
