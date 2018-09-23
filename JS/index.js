@@ -17,6 +17,7 @@ const helper = (data, k, storage) => {
 	let result = helper(data, k - 1, storage);
 	if (k >= 2 && parseInt(data.slice(s, s + 2)) <= 26 ) result += helper(data, k - 2, storage);
 
+
 	// Before returning result, store result in storage object
 	storage[k] = result;
 	return result;
@@ -30,7 +31,7 @@ const numberOfWays = (data) => {
 
 
 console.log(numberOfWays("123")); // 3
-console.log(numberOfWays("27")); // 1
+console.log(numberOfWays("2723")); // 2
 console.log(numberOfWays("011")); // 0
 console.log(numberOfWays("226")); // 3
 console.log(numberOfWays("")); // 1
