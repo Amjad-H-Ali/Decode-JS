@@ -18,3 +18,15 @@
 ###### Input: "226"
 ###### Output: 3
 ###### Explanation: It could be decoded as "BZ" (2 26), "VF" (22 6), or "BBF" (2 2 6).
+
+##### Example 3:
+
+###### Input: ""
+###### Output: 1
+###### Explanation: Empty string decodes to empty string.
+
+##### Example 4:
+
+###### Input: "026"
+###### Output: 0
+###### Explanation: No way to decode 0.
